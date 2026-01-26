@@ -1,0 +1,70 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python3 preprocess.py
+    deps:
+    - path: data/raw/creditcard.csv
+      hash: md5
+      md5: e90efcb83d69faf99fcab8b0255024de
+      size: 150828752
+      isexec: true
+    - path: preprocess.py
+      hash: md5
+      md5: 4a854ad570ddc21b685e8ce6ae065a63
+      size: 966
+      isexec: true
+    outs:
+    - path: data/processed/X_test.csv
+      hash: md5
+      md5: 8822ef3cc02b6654da9dae57a6c58dac
+      size: 30409639
+      isexec: true
+    - path: data/processed/X_train.csv
+      hash: md5
+      md5: b68f9df4dae9bb322d0087a05c8e45c3
+      size: 121643739
+      isexec: true
+    - path: data/processed/y_test.csv
+      hash: md5
+      md5: 2da48f5787220fce144c581a726064bb
+      size: 113930
+      isexec: true
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: 11617ddb83e0f874d596e0a9435cb4b5
+      size: 455696
+      isexec: true
+  train:
+    cmd: python3 train.py
+    deps:
+    - path: data/processed/X_test.csv
+      hash: md5
+      md5: 8822ef3cc02b6654da9dae57a6c58dac
+      size: 30409639
+      isexec: true
+    - path: data/processed/X_train.csv
+      hash: md5
+      md5: b68f9df4dae9bb322d0087a05c8e45c3
+      size: 121643739
+      isexec: true
+    - path: data/processed/y_test.csv
+      hash: md5
+      md5: 2da48f5787220fce144c581a726064bb
+      size: 113930
+      isexec: true
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: 11617ddb83e0f874d596e0a9435cb4b5
+      size: 455696
+      isexec: true
+    - path: train.py
+      hash: md5
+      md5: 3fa037c92a7b9911fb41831234aecbe0
+      size: 1345
+      isexec: true
+    outs:
+    - path: models/fraud_model.pkl
+      hash: md5
+      md5: ce813b28caf2810d0d6739e850661989
+      size: 315828
+      isexec: true
