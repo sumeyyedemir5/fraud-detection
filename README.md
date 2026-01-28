@@ -117,7 +117,7 @@ dvc repro
 
 This command automatically executes all stages and regenerates the final model artifact.
 
-##☁️ Cloud Infrastructure & Deployment (GCP)
+## ☁️ Cloud Infrastructure & Deployment (GCP)
 
 The model is deployed as a serverless microservice on Google Cloud Platform, chosen for its scalability and cost efficiency in production.
 
